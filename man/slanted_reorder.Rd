@@ -4,8 +4,15 @@
 \alias{slanted_reorder}
 \title{Reorder data rows and columns to move high values close to the diagonal.}
 \usage{
-slanted_reorder(data, order_data = NULL, order_rows = TRUE,
-  order_cols = TRUE, squared_order = TRUE, same_order = FALSE)
+slanted_reorder(
+  data,
+  order_data = NULL,
+  order_rows = TRUE,
+  order_cols = TRUE,
+  squared_order = TRUE,
+  same_order = FALSE,
+  discount_outliers = TRUE
+)
 }
 \arguments{
 \item{data}{A rectangular matrix to reorder, of non-negative values (unless \code{order_data} is specified).}
@@ -19,6 +26,8 @@ slanted_reorder(data, order_data = NULL, order_rows = TRUE,
 \item{squared_order}{Whether to reorder to minimize the l2 norm (otherwise minimizes the l1 norm).}
 
 \item{same_order}{Whether to apply the same order to both rows and columns.}
+
+\item{discount_outliers}{Whether to do a final order phase discounting outlier values far from the diagonal.}
 }
 \value{
 A matrix of the same shape whose rows and columns are a permutation of the input.

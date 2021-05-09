@@ -4,8 +4,15 @@
 \alias{slanted_orders}
 \title{Compute rows and columns orders which move high values close to the diagonal.}
 \usage{
-slanted_orders(data, order_rows = TRUE, order_cols = TRUE,
-  squared_order = TRUE, same_order = FALSE, max_spin_count = 10)
+slanted_orders(
+  data,
+  order_rows = TRUE,
+  order_cols = TRUE,
+  squared_order = TRUE,
+  same_order = FALSE,
+  discount_outliers = TRUE,
+  max_spin_count = 10
+)
 }
 \arguments{
 \item{data}{A rectangular matrix containing non-negative values.}
@@ -17,6 +24,8 @@ slanted_orders(data, order_rows = TRUE, order_cols = TRUE,
 \item{squared_order}{Whether to reorder to minimize the l2 norm (otherwise minimizes the l1 norm).}
 
 \item{same_order}{Whether to apply the same order to both rows and columns.}
+
+\item{discount_outliers}{Whether to do a final order phase discounting outlier values far from the diagonal.}
 
 \item{max_spin_count}{How many times to retry improving the solution before giving up.}
 }
